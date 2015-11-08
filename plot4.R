@@ -1,7 +1,7 @@
 data <- read.table("household_power_consumption.txt", sep = ";", header = TRUE, stringsAsFactors = FALSE)
 data2 <- data[grep("\\b1/2/2007\\b|\\b2/2/2007\\b", data$Date),]
 data2$Global_active_power <- as.numeric(data2$Global_active_power)
-datetime <- strptime(paste(data2$Date, data2$Time, sep = " "),"%d/%m/%Y %H:%M:%S")
+datetime <- strptime(paste(data2$Date, data2$Time, sep = " "),"%d/%m/%Y %H:%M:%S") #had been using "alltimes" in previous scripts but changed here so the axis titles would be automatic.
 png("plot4.png")
 par(mfrow = c(2,2), mar = c(4,4,2,1), oma = c(0,0,2,0))
 with(data2, {
